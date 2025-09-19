@@ -1,0 +1,150 @@
+/* --- CSS Variables for Easy Theme Management --- */
+:root {
+    --primary-color: #007bff;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --light-gray: #f4f4f9;
+    --dark-gray: #333;
+    --border-color: #ccc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- Global & Body Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.main-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* --- Main Container --- */
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-color);
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Video Element --- */
+#video-container {
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #000;
+    border-radius: 8px;
+    border: 3px solid var(--border-color);
+    overflow: hidden; /* Ensures video stays within the rounded corners */
+}
+
+video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* --- Controls Section (Input & Buttons) --- */
+#controls {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile by default */
+    gap: 15px;
+    width: 100%;
+}
+
+#name-input {
+    padding: 12px;
+    font-size: 1em;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#name-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 100%;
+    transition: filter 0.2s, transform 0.2s;
+}
+
+button:hover:not(:disabled) {
+    filter: brightness(90%);
+    transform: translateY(-1px);
+}
+
+#verify-button {
+    background-color: var(--primary-color);
+}
+
+#register-button {
+    background-color: var(--success-color);
+}
+
+button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- Status Message --- */
+#status {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.status-ready { background-color: #e2e3e5; color: #383d41; }
+.status-verifying { background-color: #d1ecf1; color: #0c5460; }
+.status-success { background-color: #d4edda; color: #155724; }
+.status-failed { background-color: #f8d7da; color: #721c24; }
+
+
+/* --- Media Query for Responsiveness (Tablet & Desktop) --- */
+/* This applies the styles when the screen width is 600px or more */
+@media (min-width: 600px) {
+    #controls {
+        flex-direction: row; /* Arrange side-by-side on larger screens */
+    }
+
+    #name-input {
+        flex-grow: 1; /* Allow the input field to take up available space */
+    }
+
+    button {
+        width: auto; /* Buttons take up their natural width */
+    }
+}

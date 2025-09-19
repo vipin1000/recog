@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Verification & Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <h1>Face Verification & Registration</h1>
+    </header>
+    
+    <main class="container">
+        <div id="video-container">
+            <video id="video" width="640" height="480" autoplay muted playsinline></video>
+        </div>
+
+        <div id="controls">
+            <input type="text" id="name-input" placeholder="Enter Name to Register">
+            <button id="register-button">Register</button>
+            <button id="verify-button">Verify Face</button>
+        </div>
+        
+        <div id="status" class="status-ready">Status: Initializing...</div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
