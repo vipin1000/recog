@@ -1,7 +1,12 @@
+// https://recog-gilt.vercel.app/
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- Configuration ---
     // ⚠️ PASTE YOUR NGROK URL HERE ⚠️
-    const API_BASE_URL = 'https://9fd4bcbb1554.ngrok-free.app';
+    const API_BASE_URL = 'https://d48d9bb77e81.ngrok-free.app';
     const VERIFY_URL = `${API_BASE_URL}/verify`;
     const REGISTER_URL = `${API_BASE_URL}/register`;
 
@@ -79,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const percentage = result.match_percentage;
                 setStatus(`Success! Welcome, ${result.name} (${percentage.toFixed(1)}% Match)`, 'success');
             } else {
-                setStatus('Verification FAILED. Face not recognized.', 'failed');
+                setStatus('Verification FAILED.', 'failed');
             }
 
         } catch (error) {
