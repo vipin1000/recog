@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Configuration ---
     // ⚠️ PASTE YOUR NGROK URL HERE ⚠️
-    const API_BASE_URL = 'https://d48d9bb77e81.ngrok-free.app';
+    const API_BASE_URL = 'https://60da07cd25c7.ngrok-free.app';
     const VERIFY_URL = `${API_BASE_URL}/verify`;
     const REGISTER_URL = `${API_BASE_URL}/register`;
 
