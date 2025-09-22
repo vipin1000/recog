@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Face Verification & Registration</h1>
     
-    <header class="main-header">
-        <h1>Face Verification & Registration</h1>
-    </header>
-    
-    <main class="container">
+    <div class="container">
         <div id="video-container">
             <video id="video" width="640" height="480" autoplay muted playsinline></video>
+            <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
         </div>
 
         <div id="controls">
@@ -24,7 +22,7 @@
         </div>
         
         <div id="status" class="status-ready">Status: Initializing...</div>
-    </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
