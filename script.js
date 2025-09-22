@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // For verification, we send a few frames for blink detection (liveness).
     // For simple recognition, FRAME_COUNT can be 1. For blink check, use 15-20.
-    const VERIFY_FRAME_COUNT = 30; // Set to 1 for faster verification without blink check
-    const FRAME_INTERVAL = 15;   // Milliseconds between each frame capture
+    const VERIFY_FRAME_COUNT = 1; // Set to 1 for faster verification without blink check
+    const FRAME_INTERVAL = 1;   // Milliseconds between each frame capture
 
     // --- DOM Elements ---
     const video = document.getElementById('video');
