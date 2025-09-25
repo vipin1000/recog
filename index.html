@@ -4,7 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Verification & Registration</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preload" href="script.js" as="script">
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            background-color: #f4f4f9; 
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            width: 100%;
+            max-width: 680px;
+        }
+        #video-container { 
+            border: 3px solid #ccc; 
+            border-radius: 8px;
+            background-color: #000;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 640px;
+            aspect-ratio: 4 / 3;
+        }
+        video { 
+            display: block; 
+            border-radius: 6px;
+            width: 100%;
+            height: auto;
+        }
+        #controls { 
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 15px; /* Adds space between items */
+            width: 100%;
+        }
+        #name-input {
+            padding: 12px;
+            font-size: 1em;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            flex-grow: 1;
+        }
+        button {
+            font-size: 1.1em;
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s, opacity 0.3s;
+        }
+        #verify-button { background-color: #007bff; }
+        #register-button { background-color: #28a745; }
+        button:disabled { background-color: #6c757d; cursor: not-allowed; opacity: 0.7;}
+        button:hover:not(:disabled) { opacity: 0.85; }
+        #status { 
+            margin-top: 20px; 
+            font-size: 1.2em; 
+            font-weight: bold; 
+            padding: 10px 15px; 
+            border-radius: 8px; 
+            width: 95%;
+            text-align: center;
+            transition: background-color 0.4s, color 0.4s;
+        }
+        .status-ready { background-color: #e2e3e5; color: #383d41; }
+        .status-verifying { background-color: #d1ecf1; color: #0c5460; }
+        .status-success { background-color: #d4edda; color: #155724; }
+        .status-failed { background-color: #f8d7da; color: #721c24; }
+    </style>
 </head>
 <body>
     <h1>Face Verification & Registration</h1>
@@ -12,18 +94,17 @@
     <div class="container">
         <div id="video-container">
             <video id="video" width="640" height="480" autoplay muted playsinline></video>
-            <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
         </div>
 
         <div id="controls">
-            <input type="text" id="name-input" placeholder="Enter Name to Register">
-            <button id="register-button">Register</button>
-            <button id="verify-button">Verify Face</button>
+            <input type="text" id="name-input" placeholder="Enter Name to Register" autocomplete="name" autocapitalize="words" spellcheck="false">
+            <button id="register-button" type="button">Register</button>
+            <button id="verify-button" type="button">Verify Face</button>
         </div>
         
         <div id="status" class="status-ready">Status: Initializing...</div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
